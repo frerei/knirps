@@ -8,6 +8,8 @@ export interface RoomProps {
 
 const StyledRoom = styled.div`
     display: grid;
+    overflow:hidden;
+    background-image:linear-gradient(-180deg, #ffffff, #efefef);
     grid-gap: 10px;
     position:absolute;
     top:0;
@@ -16,7 +18,7 @@ const StyledRoom = styled.div`
     right:0;
     width: 100%;
     height: 100%;
-    padding:20px;
+    padding:1em;
     grid-template-columns: 25% 50% 25%;
     grid-template-rows: 33% 33% 33%;
     grid-template-areas: 

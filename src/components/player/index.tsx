@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 export interface PlayerProps {
     // add interface
@@ -16,6 +16,16 @@ export interface StyledCounterProps {
     active?: boolean;
 }
 
+const rotate360 = keyframes`
+  from {
+    transform: scale(.5);
+  }
+
+  to {
+    transform: scale(1);
+  }
+`;
+
 const StyledPlayer = styled.div`
     position: relative;
     width:120px;
@@ -24,6 +34,7 @@ const StyledPlayer = styled.div`
     display:flex;
     flex-wrap:wrap;
     text-align:center;
+    animation: ${rotate360} .5s ease-out;
 `;
 
 const StyledControls = styled.div`

@@ -32,7 +32,7 @@ export class RoomContainer extends React.Component<RoomContainerProps, RoomConta
       <Room>
           <Seats position="top" active={this.state.active}  limit={4} />
           <Seats position="ml" active={this.state.active} limit={1} />
-          <StyledTable onClick={e => this.startGame(e)}>Start Game</StyledTable>
+          <StyledTable onClick={e => this.startGame(e)}>{this.state.active ? 'Change Player' : 'Start Game'}</StyledTable>
           <Seats position="mr" active={this.state.active} limit={1} />
           <Seats position="bottom" active={this.state.active} limit={4} />
       </Room>
@@ -41,8 +41,10 @@ export class RoomContainer extends React.Component<RoomContainerProps, RoomConta
 
   private startGame = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
+
+    const active = this.state.active;
     // Manipulate state here
-    this.setState({active: true})
+    this.setState({active: !active})
     console.log('Table - Start Game ' + this.state.active)
   }
 }

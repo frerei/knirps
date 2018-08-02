@@ -6,17 +6,22 @@ import { injectGlobal } from 'styled-components';
 
 injectGlobal`
   html {
-    height: 100%;
-    width: 100%;
+    overflow:hidden;
   }
 
   body {
-    max-width: 1024px;
     margin: 0 auto;
     background-color: white;
     box-sizing: border-box;
     overflow:hidden;
     font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+  }
+
+  /* if portrait mode is detected, rotate the entire site -90 degrees to hint rotating to landscape */
+  @media (orientation: portrait) {
+    html {
+      background:black;
+    }
   }
 
   *, *:before, *:after {
