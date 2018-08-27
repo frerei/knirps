@@ -7,12 +7,13 @@ This repo containts a simple app that enables you to counter level and bonus for
 
 I try to keep the used packages as simple as possible as I want to understand how things work without using unnecessary amounts of npm packages.
 
-### Used technologies (I want to learn)
+### Used technologies (so far)
 - React
 - create-react-app-ts
 - Typescript
 - styled-components
 - docz
+- reworm
 
 ## 🚀 Get it running
 
@@ -42,7 +43,7 @@ cd knirps
   - Change `any` typings to real typings
   - Resolve all @ts-ignore shortcuts
   - Remove console logs
-- [ ]
+- [ ] Introduce reworm
 - [ ] Introduce prettier
 - [ ] Introduce Docz
 
