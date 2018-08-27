@@ -2,11 +2,10 @@ import * as React from 'react';
 import styled, { keyframes } from 'styled-components';
 
 export interface PlayerProps {
-    // add interface
+    active: boolean;
     level: number;
     bonus: number;
-    avatar?: boolean;
-    onClick?: React.MouseEventHandler<HTMLElement>;
+    avatar: boolean;
     addLevel?: Function;
     removeLevel?: Function;
     addBonus?: Function;

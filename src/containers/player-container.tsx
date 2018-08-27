@@ -1,23 +1,12 @@
 import * as React from 'react';
-import Player from '../components/player/player';
+import Player, { PlayerProps } from '../components/player/player';
 
-export interface HelloContainerState {
+export interface PlayerContainerState {
   level: number;
   bonus: number;
 }
 
-export interface HelloContainerProps {
-  active: boolean;
-  level: number;
-  bonus: number;
-  key: number;
-  addLevel?: Function;
-  removeLevel?: Function;
-  addBonus?: Function;
-  removeBonus?: Function;
-}
-
-export class PlayerContainer extends React.Component<HelloContainerProps, HelloContainerState> {
+export class PlayerContainer extends React.Component<PlayerProps, PlayerContainerState> {
  
   public state = {
     level: this.props.level,
@@ -34,6 +23,8 @@ export class PlayerContainer extends React.Component<HelloContainerProps, HelloC
         removeBonus={() => this.handleClick('rmB', this.props.active)}
         level={this.state.level}
         bonus={this.state.bonus}
+        avatar={this.props.avatar}
+        active={false}
       />
     );
   }
@@ -58,7 +49,6 @@ export class PlayerContainer extends React.Component<HelloContainerProps, HelloC
       default:
         return null;
     }
-    console.log(' PLAYER ')
 
     return true;
   }

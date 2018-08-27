@@ -19,6 +19,7 @@ const StyledRoom = styled.div`
     width: 100%;
     height: 100%;
     padding:1em;
+    max-width:720px;
     grid-template-columns: 25% 50% 25%;
     grid-template-rows: 33% 33% 33%;
     grid-template-areas: 

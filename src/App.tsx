@@ -17,13 +17,6 @@ injectGlobal`
     font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
   }
 
-  /* if portrait mode is detected, rotate the entire site -90 degrees to hint rotating to landscape */
-  @media (orientation: portrait) {
-    html {
-      background:black;
-    }
-  }
-
   *, *:before, *:after {
       box-sizing: inherit;
   }
@@ -46,9 +39,7 @@ injectGlobal`
 
 function App() {
   return (
-    <div>
       <RoomContainer />
-    </div>
   );
 }
 

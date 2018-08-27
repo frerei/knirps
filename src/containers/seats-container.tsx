@@ -2,23 +2,13 @@ import * as React from 'react';
 import styled from 'styled-components';
 
 import Player from './player-container'
+import { players, addPlayer } from '../store/application'
+import { PlayerProps } from '../components/player/player';
 
 export interface SeatsContainerState {
-  players?: Array<ItemProps>;
+  players?: Array<PlayerProps>;
   active: boolean;
   limit: number;
-}
-
-export interface SeatsContainerProps {
-    children?: React.ReactNode;
-    active: boolean;
-    position: string;
-    limit: number;
-}
-
-export interface ItemProps {
-  level: number;
-  bonus: number;
 }
 
 export interface StyledSeatProps {
@@ -33,40 +23,42 @@ const StyledSeats = styled.div`
   text-align:center;
 `;
 
-export class BottomSeats extends React.Component<SeatsContainerProps, SeatsContainerState> {
- 
-    public state = {
-      players: [],
-      active: this.props.active,
-      limit: this.props.limit
-    };
-  
-    public render(): JSX.Element {
-      const { props } = this;
-  
-      return (
-        <StyledSeats onClick={e => this.handleClick(e, props.active)} position={props.position}>
-        {this.state.players &&
-          this.state.players.length >= 1 ?
-            this.state.players.map((item: ItemProps, key) => (
-                <Player key={key} level={item.level} bonus={item.bonus} active={props.active} />
-            ))
-          : ''
-        }
-        </StyledSeats>
-     );
-    }
+export class BottomSeats extends React.Component<any, SeatsContainerState> {
 
-    private handleClick = (e: React.MouseEvent<HTMLElement>, active: boolean) => {
-        active && e.stopPropagation()
-        
-        const players = this.state.players;
+  public state = {
+    players: [],
+    active: this.props.active,
+    limit: this.props.limit
+  };
 
-        if (players.length >= this.state.limit || active) { return null; } 
-        // @ts-ignore
-        this.setState({players: this.state.players.concat({level: 1, bonus: 0 }), active: active})
-        return true;
-    }
+  public render(): JSX.Element {
+    const { props } = this;
+    
+    return (
+      <StyledSeats onClick={e => this.handleClick(e, props.active)} position={props.position}>
+        {props.position && players.get(state =>
+          state.list[props.position].map(
+            (item: PlayerProps, key: string) => (
+              <Player
+                avatar={item.avatar}
+                key={key}
+                level={item.level}
+                bonus={item.bonus}
+                active={props.active}
+              />
+            )
+          )
+        )}
+      </StyledSeats>
+    );
+  }
+
+  private handleClick = (e: React.MouseEvent<HTMLElement>, active: boolean) => {
+    if (active) {e.stopPropagation(); return null}
+
+    addPlayer({ level: 1, bonus: 0, active: false, avatar: true}, this.props.position, this.props.limit)
+    return true;
+  }
 }
 
 export default BottomSeats;

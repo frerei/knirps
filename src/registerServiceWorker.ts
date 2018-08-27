@@ -121,21 +121,3 @@ export function unregister() {
     });
   }
 }
-
-var request = self.indexedDB.open('EXAMPLE_DB', 1);
-
-request.onsuccess = function (event: any) {
-  // get database from event
-  var db = event.target.result;
-  console.log(db);
-}
-
-request.onerror = function (event: any) {
-  console.log('[onerror]', request.error);
-};
-
-request.onupgradeneeded = function (event: any) {
-  var db = event.target.result;
-  var productsStore = db.createObjectStore('products', { keyPath: 'id' });
-  console.log(productsStore);
-};
