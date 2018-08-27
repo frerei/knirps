@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import * as Containers from './containers';
+import { RoomContainer } from './containers';
 
 import { injectGlobal } from 'styled-components';
 
@@ -47,7 +47,7 @@ injectGlobal`
 function App() {
   return (
     <div>
-      <Containers.RoomContainer />
+      <RoomContainer />
     </div>
   );
 }

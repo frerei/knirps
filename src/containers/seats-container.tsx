@@ -64,9 +64,7 @@ export class BottomSeats extends React.Component<SeatsContainerProps, SeatsConta
 
         if (players.length >= this.state.limit || active) { return null; } 
         // @ts-ignore
-        this.setState({players: this.state.players.concat({level: 1, bonus: 0 })})
-        this.setState({active: active});
-
+        this.setState({players: this.state.players.concat({level: 1, bonus: 0 }), active: active})
         return true;
     }
 }

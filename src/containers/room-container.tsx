@@ -2,8 +2,8 @@ import * as React from 'react';
 import styled from 'styled-components';
 
 import Seats from  './seats-container';
-import Table from '../components/table';
-import Room from '../components/room'
+import Table from '../components/table/table';
+import Room from '../components/room/room';
 
 export interface RoomContainerState {
   active?: boolean;

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Player from '../components/player'
+import Player from '../components/player/player';
 
 export interface HelloContainerState {
   level: number;

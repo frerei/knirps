@@ -11,12 +11,12 @@
 
 const isLocalhost = Boolean(
   window.location.hostname === 'localhost' ||
-    // [::1] is the IPv6 localhost address.
-    window.location.hostname === '[::1]' ||
-    // 127.0.0.1/8 is considered localhost for IPv4.
-    window.location.hostname.match(
-      /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
-    )
+  // [::1] is the IPv6 localhost address.
+  window.location.hostname === '[::1]' ||
+  // 127.0.0.1/8 is considered localhost for IPv4.
+  window.location.hostname.match(
+    /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
+  )
 );
 
 export default function register() {
@@ -45,7 +45,7 @@ export default function register() {
         navigator.serviceWorker.ready.then(() => {
           console.log(
             'This web app is being served cache-first by a service ' +
-              'worker. To learn more, visit https://goo.gl/SC7cgQ'
+            'worker. To learn more, visit https://goo.gl/SC7cgQ'
           );
         });
       } else {
@@ -121,3 +121,21 @@ export function unregister() {
     });
   }
 }
+
+var request = self.indexedDB.open('EXAMPLE_DB', 1);
+
+request.onsuccess = function (event: any) {
+  // get database from event
+  var db = event.target.result;
+  console.log(db);
+}
+
+request.onerror = function (event: any) {
+  console.log('[onerror]', request.error);
+};
+
+request.onupgradeneeded = function (event: any) {
+  var db = event.target.result;
+  var productsStore = db.createObjectStore('products', { keyPath: 'id' });
+  console.log(productsStore);
+};
