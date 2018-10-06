@@ -3,12 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "immer": "^1.5.0",
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1",
-    "react-scripts-ts": "2.16.0",
-    "reworm": "^1.0.4",
-    "styled-components": "^3.3.3",
+    "immer": "^1.7.2",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-scripts-ts": "^3.1.0",
+    "styled-components": "^3.4.9",
     "ulid": "^2.3.0"
   },
   "scripts": {
@@ -18,10 +17,10 @@
     "eject": "react-scripts-ts eject"
   },
   "devDependencies": {
-    "@types/jest": "^23.3.0",
-    "@types/node": "^10.5.3",
-    "@types/react": "^16.4.7",
-    "@types/react-dom": "^16.0.6",
-    "typescript": "^2.9.2"
+    "@types/jest": "^23.3.3",
+    "@types/node": "^10.11.4",
+    "@types/react": "^16.4.15",
+    "@types/react-dom": "^16.0.8",
+    "typescript": "^3.1.1"
   }
 }
