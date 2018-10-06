@@ -1,26 +1,19 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-import { AppContextInterface, AppContextProvider } from '../store/applicationContext';
+import * as _ from 'lodash';
+
+import { AppContextInterface, AppContextProvider } from '../store/appContext';
 
 import Seats from  './seats-container';
 import Table from '../components/table/table';
 import Room from '../components/room/room';
 
-export interface RoomContainerState {
-  active?: boolean;
-}
-
-export interface RoomContainerProps {
-    children?: React.ReactNode,
-    onClick?: React.MouseEventHandler<HTMLElement>;
-}
-
 const StyledTable = styled(Table)`
    grid-area: table;
 `;
 
-export class RoomContainer extends React.Component<RoomContainerProps, RoomContainerState> {
+export class RoomContainer extends React.Component {
  
   public state: AppContextInterface = {
     active: false,
@@ -33,8 +26,6 @@ export class RoomContainer extends React.Component<RoomContainerProps, RoomConta
   };
 
   public render(): JSX.Element {
-    // const { props } = this;
-
     return (
       <AppContextProvider value={this.state}>
         <Room>
@@ -66,6 +57,8 @@ export class RoomContainer extends React.Component<RoomContainerProps, RoomConta
     const active = !this.state.active;
 
     this.setState({active: active})
+
+    return true
   }
 
   private handleClick = (position: string, limit: number) => {
@@ -74,7 +67,7 @@ export class RoomContainer extends React.Component<RoomContainerProps, RoomConta
     if (oldState.length >= limit) { return false }
 
     const newState = oldState;
-    newState.push({ level: 1, bonus: 0, active: false, avatar: true })
+    newState.push({ level: 1, bonus: 0, active: false, avatar: _.sample([true, false]) })
 
     this.setState(newState)
 

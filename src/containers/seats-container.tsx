@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-import { AppContextConsumer } from '../store/applicationContext';
+import { AppContextConsumer } from '../store/appContext';
 
 import Player from './player-container'
 import { PlayerProps } from '../components/player/player';

@@ -13,7 +13,6 @@ I try to keep the used packages as simple as possible as I want to understand ho
 - Typescript
 - styled-components
 - docz
-- reworm
 
 ## 🚀 Get it running
 
@@ -32,10 +31,14 @@ cd knirps
 
 ## 📆 What happened so far
 
+#### Oct 6, 2018
+- Introduced React Context over Reworm to basically reduce the number of external Packages and better understand react
+- Introduced lodash for random avatars
+- Randome code cleanup
+
 #### Aug 18, 2018
-- Improved resonsive styling of the components
-- Added timestamp to the data object as a temporary uuid replacement, as with the arr.length used as a key on the datarow it created conflicts when one element was deleted and a new one (then with a duplicate key) was added. Resulting in the app to crash
-- Used the worst commit messages one could imagine, need to improve on that (and be strict)
+- Improved styling of the components
+
 
 ## 🏁 Planned next steps
 
@@ -43,7 +46,6 @@ cd knirps
   - Change `any` typings to real typings
   - Resolve all @ts-ignore shortcuts
   - Remove console logs
-- [ ] Introduce reworm
 - [ ] Introduce prettier
 - [ ] Introduce Docz
 
@@ -51,11 +53,13 @@ cd knirps
 - [ ] Persist data on local machine
 - [ ] Make app available offline (pwa)
 - [ ] Sync app in database (firebase?) to work collaborative on multiple devices
+- [ ] Translate App to React Native
 
 ---
 
 ## ✅ Done
 - [x] Create a README.md
+- [x] Introduce Context Api
 
 ## 🙌 Thanks to
 [@markusoelhafen](https://github.com/markusoelhafen/) - for the [README.md](https://github.com/markusoelhafen/todo-app-pwa/blob/master/README.md) format
