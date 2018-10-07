@@ -2,7 +2,6 @@ import * as React from 'react';
 import styled, { keyframes } from 'styled-components';
 
 export interface PlayerProps {
-    active: boolean;
     level: number;
     bonus: number;
     avatar: boolean;
@@ -10,10 +9,6 @@ export interface PlayerProps {
     removeLevel?: Function;
     addBonus?: Function;
     removeBonus?: Function;
-}
-
-export interface StyledCounterProps {
-    active?: boolean;
 }
 
 const rotate360 = keyframes`

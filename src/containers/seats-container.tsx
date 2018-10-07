@@ -41,7 +41,6 @@ export class BottomSeats extends React.Component<SeatsContainerState> {
                     key={key}
                     level={item.level}
                     bonus={item.bonus}
-                    active={appContext.active}
                   />
                 )
               )
